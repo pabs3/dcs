@@ -8,6 +8,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/Debian/dcs/cmd/dcs-web/common"
+	"github.com/Debian/dcs/cmd/dcs-web/health"
 	"github.com/Debian/dcs/ranking"
 	"html/template"
 	"log"
@@ -606,12 +607,21 @@ func Search(w http.ResponseWriter, r *http.Request) {
 		if val := strings.TrimSpace(result.Ctxn2); val != "" {
 			ctx = append(ctx, result.Ctxn2)
 		}
-		fmt.Fprintf(w, `<li><a href="/show?file=%s&amp;line=%d&amp;numfiles=%d#L%d"><code><strong>%s</strong>%s:%d</code></a><br><pre>%s</pre>
+		if *common.UseSourcesDebianNet && health.IsHealthy("sources.debian.net") {
+			show_url := fmt.Sprintf("http://sources.debian.net/src/%s?hl=%d#L%d",
+				strings.Replace(result.SourcePackage+result.RelativePath, "_", "/", 1),
+				result.Line,
+				result.Line)
+                } else {
+			show_url := fmt.Sprintf("/show?file=%s&amp;line=%d&amp;numfiles=%d#L%d",
+				url.QueryEscape(result.SourcePackage+result.RelativePath),
+				result.Line,
+				len(files),
+				result.Line)
+		}
+		fmt.Fprintf(w, `<li><a href="%s"><code><strong>%s</strong>%s:%d</code></a><br><pre>%s</pre>
 <small>PathRank: %g, Rank: %g, Final: %g</small></li>`+"\n",
-			url.QueryEscape(result.SourcePackage+result.RelativePath),
-			result.Line,
-			len(files),
-			result.Line,
+			show_url,
 			result.SourcePackage,
 			result.RelativePath,
 			result.Line,
