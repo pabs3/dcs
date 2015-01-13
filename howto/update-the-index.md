@@ -81,7 +81,7 @@ $ mkdir NEW OLD
 First of all, get an updated copy of the UDD’s popcon_src table and import it to the PostgreSQL server:
 ```bash
 echo 'DROP TABLE popcon; DROP TABLE popcon_src;' | psql udd
-wget -qO- http://udd.debian.org/udd-popcon.sql.xz | xz -d -c | psql udd
+wget -qO- https://udd.debian.org/udd-popcon.sql.xz | xz -d -c | psql udd
 ```
 
 Then, update your copy of the Debian source mirror. This should not take much more than 15 minutes when using a high-speed mirror.

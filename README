@@ -1,4 +1,4 @@
-Please read http://codesearch.debian.net/research/bsc-thesis.pdf first!
+Please read https://codesearch.debian.net/research/bsc-thesis.pdf first!
 
 cmd/
     dcs-unpack - tool to unpack a debian source mirror

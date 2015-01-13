@@ -117,7 +117,7 @@ func filterByKeywords(rewritten *url.URL, files []ranking.ResultPath) []ranking.
 			//err := common.Templates.ExecuteTemplate(w, "error.html", map[string]interface{}{
 			//	"q":          r.URL.Query().Get("q"),
 			//	"errormsg":   fmt.Sprintf(`%v`, err),
-			//	"suggestion": template.HTML(`See <a href="http://codesearch.debian.net/faq#regexp">http://codesearch.debian.net/faq#regexp</a> for help on regular expressions.`),
+			//	"suggestion": template.HTML(`See <a href="https://codesearch.debian.net/faq#regexp">https://codesearch.debian.net/faq#regexp</a> for help on regular expressions.`),
 			//})
 			//if err != nil {
 			//	http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -145,7 +145,7 @@ func filterByKeywords(rewritten *url.URL, files []ranking.ResultPath) []ranking.
 			//err := common.Templates.ExecuteTemplate(w, "error.html", map[string]interface{}{
 			//	"q":          r.URL.Query().Get("q"),
 			//	"errormsg":   fmt.Sprintf(`%v`, err),
-			//	"suggestion": template.HTML(`See <a href="http://codesearch.debian.net/faq#regexp">http://codesearch.debian.net/faq#regexp</a> for help on regular expressions.`),
+			//	"suggestion": template.HTML(`See <a href="https://codesearch.debian.net/faq#regexp">https://codesearch.debian.net/faq#regexp</a> for help on regular expressions.`),
 			//})
 			//if err != nil {
 			//	http.Error(w, err.Error(), http.StatusInternalServerError)

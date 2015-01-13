@@ -25,7 +25,7 @@ func Show(w http.ResponseWriter, r *http.Request) {
 	log.Printf("Showing file %s, line %d\n", filename, line)
 
 	if *common.UseSourcesDebianNet && health.IsHealthy("sources.debian.net") {
-		destination := fmt.Sprintf("http://sources.debian.net/src/%s?hl=%d#L%d",
+		destination := fmt.Sprintf("https://sources.debian.net/src/%s?hl=%d#L%d",
 			strings.Replace(filename, "_", "/", 1), line, line)
 		log.Printf("SDN is healthy. Redirecting to %s\n", destination)
 		http.Redirect(w, r, destination, 302)
@@ -68,7 +68,7 @@ func Show(w http.ResponseWriter, r *http.Request) {
 
 	// NB: contents is untrusted as it can contain the contents of any file
 	// within any Debian package. Converting it to string is not a problem,
-	// though, see http://golang.org/ref/spec#Conversions, "Conversions to and
+	// though, see https://golang.org/ref/spec#Conversions, "Conversions to and
 	// from a string type": "Converting a slice of bytes to a string type
 	// yields a string whose successive bytes are the elements of the slice.".
 	// We don’t iterate over this string, we just pass it directly to the

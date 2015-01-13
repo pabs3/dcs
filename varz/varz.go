@@ -101,7 +101,7 @@ func (ct diskStatsMetric) Collect(ch chan<- prometheus.Metric) {
 
 	scanner := bufio.NewScanner(diskstats)
 	for scanner.Scan() {
-		// From http://sources.debian.net/src/linux/3.16.7-2/block/genhd.c/?hl=1141#L1141
+		// From https://sources.debian.net/src/linux/3.16.7-2/block/genhd.c/?hl=1141#L1141
 		// seq_printf(seqf, "%4d %7d %s %lu %lu %lu %u %lu %lu %lu %u %u %u %u\n",
 		var major, minor uint64
 		var device string

@@ -52,7 +52,7 @@ func checkSDN() (update healthUpdate) {
 		},
 	}
 
-	req, err := http.NewRequest("GET", "http://sources.debian.net/api/ping/", nil)
+	req, err := http.NewRequest("GET", "https://sources.debian.net/api/ping/", nil)
 	if err != nil {
 		log.Printf("health check: could not create request: %v\n", err)
 		return
